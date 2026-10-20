@@ -1,6 +1,6 @@
 // importando o express (instalado via terminal)
 import express from 'express';
-import { ler } from './src/aluno.js';
+import { ler, inserir, lerUm } from './src/aluno.js';
 
 const app = express();
 const porta = 3000;
@@ -25,12 +25,20 @@ app.get('/alunos', (req, res) => {
 
 // ROTA/Endpoint para visualizar UM aluno
 app.get('/alunos/:id', (req, res) => {
-    res.send('Dados de um aluno qualquer');
+    // res.send('Dados de um aluno qualquer');
+
+    // requisição do parâmetro ID
+    const id = parseInt(req.params.id); 
+    lerUm(id, res);
 });
 
 // Endpoint para INSERIR UM aluno no banco de dados
 app.post('/alunos', (req, res) => {
-    res.send('Cadastrando um aluno.');
+    //res.send('Cadastrando um aluno.');
+
+    // capturando os dados a partir do corpo da requisição (req)
+    const novoAluno = req.body; 
+    inserir(novoAluno, res);
 })
 
 // PUT: Endpoint para atualiza TODOS os dados de UM aluno
