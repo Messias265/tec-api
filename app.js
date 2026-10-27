@@ -18,7 +18,8 @@ app.use(express.urlencoded( {extended : true}) );
 /* ROTAS */
 // Configurando rota para o início da aplicação
 app.get('/', function(req, res) {
-    res.send('API de alunos com nodeJS, express e MySQL.');
+    //res.send('API de alunos com nodeJS, express e MySQL.');
+    res.redirect('https://documenter.getpostman.com/view/59143115/2sBYHVuyfQ');
 });
 
 // ROTA para visualizar TODOS os alunos
